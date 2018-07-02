@@ -7,16 +7,16 @@ public class TeleportSystem : MonoBehaviour {
     #region public variables
 
     /// <summary>
-    /// Индекс мира к которому идет телепорт
+    /// World Index for teleport
     /// </summary>
     public int To;
     /// <summary>
-    /// Название конечного телепорта
+    /// Name of end location
     /// </summary>
     public string EndPoint;
 
     /// <summary>
-    /// Точка спавна игрока
+    /// Player Spawn point
     /// </summary>
     [HideInInspector]
     public Transform SpawnPoint;
@@ -28,10 +28,10 @@ public class TeleportSystem : MonoBehaviour {
 	}
 
     /// <summary>
-    /// Телепортация
+    /// Teleportation
     /// </summary>
-    /// <param name="toWorld">Индекс мира в который нужно телепортироватся</param>
-    /// <param name="teleportName">Название телепорта к которому нужно телепортироватся</param>
+    /// <param name="toWorld">World Index for teleport</param>
+    /// <param name="teleportName">Name of end location</param>
     public static void Teleport(int toWorld, string teleportName)
     {
         _teleportName = teleportName;
@@ -40,16 +40,16 @@ public class TeleportSystem : MonoBehaviour {
     }
 
     /// <summary>
-    /// Тулупортация
+    /// Teleport location
     /// </summary>
-    /// <param name="teleport">Телепорт от которого произошел вызов</param>
+    /// <param name="teleport">Teleport origin</param>
     public void Teleport(TeleportSystem teleport)
     {
         Teleport(teleport.To, teleport.name);
     }
 
     /// <summary>
-    /// Спавн игрока в указаном месте и настройка миссии
+    /// Player spawn in specified location & mission setup
     /// </summary>
     private static void SpawnAtEndPoint()
     {
@@ -72,12 +72,12 @@ public class TeleportSystem : MonoBehaviour {
     #region private variables
 
     /// <summary>
-    /// True - если телепортация активировалась, нужно что бы не сработала несколько раз колизия 
+    /// True - if teleportation is activated, avoidance for multiple collisions 
     /// </summary>
     private bool _teleportStart = false;
 
     /// <summary>
-    /// Название последнего используемого телепорта
+    /// Name of teleport origin
     /// </summary>
     private static string _teleportName;
 
